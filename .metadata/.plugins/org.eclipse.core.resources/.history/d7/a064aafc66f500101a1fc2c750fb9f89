@@ -1,0 +1,59 @@
+package com.animales;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class PrincipalA {
+	public static void main(String[] args) {
+	    // Instanciar el objeto
+	    Animales a1 = new Animales("Gato", "Siames", "Blanco", 2);
+	    Animales a2 = new Animales("Gato", "Persa", "Amarillo", 5);
+	    Animales a3 = new Animales("Gato", "Calicó", "Naranja, negro, blanco", 1);
+	   	    
+	    // Objeto auxiliar
+	    Animales auAux = null;
+	    
+	    // Declaración de una lista para almacenar los objetos
+	    List<Animales> lista = new ArrayList<Animales>();
+	    
+	   //agregar objetos a la lista
+	    lista.add(a1);
+	    lista.add(a2);
+	    lista.add(a3);
+
+	    //mostrar lo que existe en la lista, imprime en consola
+	    	System.out.println(lista);
+	        	
+		//buscar un elemento especifico 
+		    	auAux =lista.get(1);
+		    	System.out.println("Elemento encontrado " + auAux);
+		    	    	
+		//editar elemento de la lista 
+			    	auAux = lista.get(1);
+			    	auAux.setColor("Rosila");
+			    	auAux.setAños(1);
+			    	System.out.println("Elemento editado: "+ auAux);
+			    	
+			    //eliminar un elemento de la lista 
+			    	lista.remove(2);
+			    	System.out.println("Lista actualizada\n"+ lista);
+			    
+			    //contar los elementos de la lista 
+			    	System.out.println("existen " +  lista.size() + "gatitos en la lista");
+			    	
+			    //eliminar todo 
+			    lista.clear();
+			    
+			    //validar si la lista está vacia 
+			    
+			   if(lista.isEmpty()) {
+				   System.out.println("No exixten gatos en la lista ");
+			   } else {
+				   System.out.println(lista);
+			   }
+			}
+
+
+
+	}
+	

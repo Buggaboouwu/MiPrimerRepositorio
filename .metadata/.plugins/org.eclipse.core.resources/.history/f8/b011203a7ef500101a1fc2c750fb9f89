@@ -1,0 +1,233 @@
+package com.animales;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+import com.animales.Animales;
+
+public class PrincipalA {
+	public static void main(String[] args) {
+	    // Instanciar el objeto
+	    Animales a1 = new Animales("Gato", "Siames", "Blanco", 2);
+	    Animales a2 = new Animales("Gato", "Persa", "Amarillo", 5);
+	    Animales a3 = new Animales("Gato", "Calicó", "Naranja, negro, blanco", 1);
+	   	    
+	    // Objeto auxiliar
+	    Animales auAux = null;
+	    
+	    // Declaración de una lista para almacenar los objetos
+	    List<Animales> lista = new ArrayList<Animales>();
+	    
+	   //agregar objetos a la lista
+	    lista.add(a1);
+	    lista.add(a2);
+	    lista.add(a3);
+/*
+	    //mostrar lo que existe en la lista, imprime en consola
+	    	System.out.println(lista);
+	        	
+		//buscar un elemento especifico 
+		    	auAux =lista.get(1);
+		    	System.out.println("Elemento encontrado " + auAux);
+		    	    	
+		//editar elemento de la lista 
+			    	auAux = lista.get(1);
+			    	auAux.setColor("Rosila");
+			    	auAux.setAños(1);
+			    	System.out.println("Elemento editado: "+ auAux);
+			    	
+			    //eliminar un elemento de la lista 
+			    	lista.remove(2);
+			    	System.out.println("Lista actualizada\n"+ lista);
+			    
+			    //contar los elementos de la lista 
+			    	System.out.println("existen " +  lista.size() + "gatitos en la lista");
+			    	
+			    //eliminar todo 
+			    lista.clear();
+			    
+			    //validar si la lista está vacia 
+			    
+			   if(lista.isEmpty()) {
+				   System.out.println("No existen gatos en la lista ");
+			   } else {
+				   System.out.println(lista);
+			   }
+			   */
+	    
+	    
+	    
+	    Scanner scan = null; //se utiliza para leerla entrada de usuario
+	    int menuPrincipal=0, menuEditar=0, indice=0;
+	    //los menis son variables que almacenan opciones e indice 
+	    
+	    //variables locales 
+	    String Especie, Raza, Color;
+	    int Años;
+	    
+	    //uso de ciclo Do-While: en java es una estructura que permite ejecutar el bloque de codigo el menos una vez y este contnua su ejecucion hasta cumplir la condicion 
+	    
+	    do {
+	    	System.out.println("-----Menú-----");
+	    	System.out.println("1.- Agregar");
+	    	System.out.println("2.- Mostrar lista");
+	    	System.out.println("3.- Editar");
+	    	System.out.println("4.- Buscar por atributo");
+	    	System.out.println("5.- Eliminar por atributo");
+	    	System.out.println("6.- Contar ");
+	    	System.out.println("7.- Eliminar todo");
+	    	System.out.println("8.- Salir");
+	    	System.out.println("Elige una opción");
+	    	scan = new Scanner(System.in);
+	    	menuPrincipal = scan.nextInt();
+	    	
+	    	/*Metodo switch o case: estructura e control de flujo que nos 
+	    	 * permite ejecutar diferentes bloques de codigo basados en el valor de una expresion
+	    	 * También conocidos como cse, porque dentro del switch se utilizan difeerentes case para manejar dieretes casos de una expresion */
+	    	
+	    	switch(menuPrincipal) {
+	    	case 1: 
+	    		System.out.println("1.- Agrega un registro");
+	    		System.out.println("Escribe la Especie del animal");
+	    		scan =new Scanner(System.in);
+	    		Especie = scan.nextLine();
+	    		System.out.println("Escribe la Raza del animal");
+	    		scan =new Scanner(System.in);
+	    		Raza = scan.nextLine();
+	    		System.out.println("Escribe el color del animal");
+	    		scan =new Scanner(System.in);
+	    		Color = scan.nextLine();
+	    		System.out.println("Escribe la edad del animal");
+	    		scan =new Scanner(System.in);
+	    		Años = scan.nextInt();
+	    		
+	    		//instanciar
+	    		auAux = new Animales(Especie, Raza, Color, Años);
+	    		//guardar en la lista 
+	    		lista.add(auAux);
+	    		System.out.println("Registro exitoso");
+	    		break; //Regresa al menú, se rompe el flujo 
+	    		
+	    	case 2:
+	    		System.out.println("2.-Mostrar lista");
+	    		System.out.println(lista);
+	    		break;
+	    	
+	    	case 3:
+	    		System.out.println("3.- Editar");
+	    		System.out.println("Ingresa el indice para editar");
+	    		scan = new Scanner(System.in);
+	    		indice =scan.nextInt();
+	    		
+	    		auAux = lista.get(indice);
+	    		
+	    		do {
+	    			System.out.println("1.-editar Especie");
+	    			System.out.println("2.-editar Raza");
+	    			System.out.println("3.-editar Color");
+	    			System.out.println("4.-editar Edad");
+	    			System.out.println("Elige una opción");
+	    			scan = new Scanner(System.in);
+	    			menuEditar = scan.nextInt();
+	    			
+	    			switch(menuEditar) {
+	    			case 1: 
+	    				System.out.println("Escribe la nueva Especie");
+	    				scan = new Scanner (System.in);
+	    				Especie= scan.nextLine();
+	    				auAux.setEspecie(Especie);
+	    				System.out.println("Se edito correctamente");
+	    				break;
+	    			case 2:
+	    				
+	    				System.out.println("Escribe la nueva Raza");
+	    				scan = new Scanner (System.in);
+	    				Raza= scan.nextLine();
+	    				auAux.setRaza(Raza);
+	    				System.out.println("Se edito correctamente");
+	    				break;
+	    				
+	    			case 3:
+	    				
+	    				System.out.println("Escribe el nuevo color");
+	    				scan = new Scanner (System.in);
+	    				Color= scan.nextLine();
+	    				auAux.setColor(Color);
+	    				System.out.println("Se edito correctamente");
+	    				break;
+	    				
+	    			case 4:
+	    	
+	    				System.out.println("Escribe su  nueva edad");
+	    				scan = new Scanner (System.in);
+	    				Años= scan.nextInt();
+	    				auAux.setAños(Años);
+	    				System.out.println("Se edito correctamente");
+	    				break;
+	    				
+	    			case 5:
+	    			System.out.println("Regreso menu principal");
+	    			break;
+	    			default:
+	    				System.out.println("Indice fuera de rango, ingresa un numero correcto");
+	    				break;
+	    			}// cierra el switch de editar
+	    			
+	    		}while(menuEditar != 5);  //cierra el do de editar
+	    		break; //cierra el case de editar
+	    		
+	    	case 4: 
+	    		System.out.println("4-. Buscar un elemento por atributo ");
+	    		System.out.println("Indica el atributo para mostrar información");
+	    		scan = new Scanner(System.in);
+	    		String buscar = scan.nextLine();
+	    		
+	    		System.out.println("\nResultados de búsqueda:");
+	    	    for (Animales animal : lista) {
+	    	        if (animal.getEspecie().equalsIgnoreCase(buscar) ||
+	    	            animal.getRaza().equalsIgnoreCase(buscar) ||
+	    	            animal.getColor().toLowerCase().contains(buscar.toLowerCase()) ||
+	    	            String.valueOf(animal.getAños()).equals(buscar)) {
+	    	            
+	    	            System.out.println("Encontrado: " + animal);
+	    	        }
+	    	    }
+	    	    break;
+	    		
+	    	case 5:
+	    		System.out.println("5.- Eliminar registro por atributo ");
+	    		System.out.println("Indique el registro a eliminar");
+	    		scan = new Scanner(System.in);
+	    	    String eliminar = scan.nextLine();
+	    	    
+	    	    lista.removeIf(animal -> 
+	    	        animal.getEspecie().equalsIgnoreCase(eliminar) ||
+	    	        animal.getRaza().equalsIgnoreCase(eliminar) ||
+	    	        animal.getColor().toLowerCase().contains(eliminar.toLowerCase()) ||
+	    	        String.valueOf(animal.getAños()).equals(eliminar)
+	    	    );
+	    	    
+	    	    System.out.println("Eliminados exitosamente");
+	    	    System.out.println("\nLista actualizada:\n" + lista);
+	    	    break;
+	    	
+	    	case 6:
+	    		System.out.println("6.- Contar ");
+	    		System.out.println("Existen" + lista.size() + "autos registrados");
+	    		break;
+	    		
+	    	case 7:
+	    		System.out.println("Eliminar todo");
+	    		break;
+	    		default:
+	    			System.out.println("Indice fuera de rango");
+	    			break;
+	    	case 8:
+	    	}
+	    }while(menuPrincipal !=8);
+	    }
+	
+}	    	
+			
+

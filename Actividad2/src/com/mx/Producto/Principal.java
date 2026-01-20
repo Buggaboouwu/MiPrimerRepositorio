@@ -1,0 +1,49 @@
+package com.mx.Producto;
+
+public class Principal {
+	
+	public static void main(String args[] ) {
+		//instancia el objeto 
+		Producto prod1 = new Producto("Muñeca", "Muñeca Jade Pixies", "MGA", 1000, 5, "BR01");
+		Producto prod2 = new Producto("Peluche", "Peluche Capibara", "X", 100, 800, "CA01");
+		Producto prod3 = new Producto("Figura", "Figura Spiderman", "Mattel", 1500, 45, "FS01");
+		Producto prod4 = new Producto("Muñeca", "Muñeca Bratz", "MGA", 800, 30, "BR04");
+		Producto prod5 = new Producto("Carrito", "Carro en bloques", "Lego", 1299, 60, "LE01");
+		
+		//objeto auxiliar
+		Producto prodAux = null;
+		
+		//Instanciar la clase de implementacion para poder ocupar todos los metodos declarados 
+		Implementacion imp = new Implementacion();
+		
+		//almacenar todos los objetos en la lista 
+		imp.create(0, prod1);
+		imp.create(1, prod2);
+		imp.create(2, prod3);
+		imp.create(3, prod4);
+		imp.create(4, prod5);
+		
+		//mostrar
+		imp.read();
+		
+		//buscar
+		prodAux = imp.buscar(1);
+		System.out.println("Elemento encontrado: " + prodAux );
+		
+		//editar
+		prodAux = imp.buscar(2);
+		prodAux.setNombre("Bratz Pixies");
+		prodAux.setPrecio(799.99);
+		imp.update(1, prodAux);
+		System.out.println("Elemento editado " + prodAux);
+		
+		//eliminar
+		imp.delete(2);
+		imp.read();
+		
+		//contar
+		imp.contar();
+	
+	}
+
+}

@@ -1,0 +1,36 @@
+package com.automovil;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class principal {
+	public static void main(String[] args) {
+	    // Instanciar el objeto
+	    automovil a1 = new automovil("Toyota", "Corolla", 150000, "rojo");
+	    automovil a2 = new automovil("SEAT", "Toledo", 170000, "Negro");
+	    automovil a3 = new automovil("Suzuki", "Swift", 250000, "blanco");
+	    automovil a4 = new automovil("Audi", "Q5", 360000, "Azul");
+	    automovil a5 = new automovil("mazda", "X3", 350000, "Rojo");
+	    automovil a6 = new automovil("Volkswagen", "Beetle", 200000, "rosa");
+	    automovil a7 = new automovil("Honda", "civic", 20000, "gris");
+	    
+	    // Objeto auxiliar
+	    automovil auAux = null;
+	    
+	    // Declaración de una lista para almacenar los objetos
+	    List<automovil> lista = new ArrayList<automovil>();
+	    
+	   //agregar objetos a la lista
+	    lista.add(a1);
+	    lista.add(a2);
+	    lista.add(a3);
+	    lista.add(a4);
+	    lista.add(a5);
+	    lista.add(a6);
+	    lista.add(a7);
+
+	    //mostrar lo que existe en la lista, imprime en consola
+	    	System.out.println(lista);
+
+	}
+}

@@ -1,0 +1,51 @@
+package com.mx.Producto;
+
+public class Principal {
+	
+	public static void main(String args[] ) {
+		//instancia el objeto 
+		Producto prod1 = new Producto("Muñeca ", "Electronica", "Dell", 18999.99, 15, "LAP001");
+		Producto prod2 = new Producto("Peluche", "Accesorios", "Logitech", 549.99, 80, "MOU002");
+		Producto prod3 = new Producto("", "Accesorios", "Corsair", 2199.50, 45, "TEC003");
+		Producto prod4 = new Producto("Monitor 24''", "Electronica", "LG", 3899.00, 30, "MON004");
+		Producto prod5 = new Producto("Audifonos Bluetooth", "Audio", "Sony", 1299.99, 60, "AUD005");
+		
+		//objeto auxiliar
+		Producto prodAux = null;
+		
+		//Instanciar la clase de implementacion para poder ocupar todos los metodos declarados 
+		Implementacion imp = new Implementacion();
+		
+		//almacenar todos los objetos en la lista 
+		imp.create(0, prod1);
+		imp.create(1, prod2);
+		imp.create(2, prod3);
+		imp.create(3, prod4);
+		imp.create(4, prod5);
+		imp.create(5, prod6);
+		imp.create(6, prod7);
+		
+		//mostrar
+		imp.read();
+		
+		//buscar
+		prodAux = imp.buscar(1);
+		System.out.println("Elemento encontrado: " + prodAux );
+		
+		//editar
+		prodAux = imp.buscar(1);
+		prodAux.setNombre("Mouse RGB Pro");
+		prodAux.setPrecio(799.99);
+		imp.update(1, prodAux);
+		System.out.println("Elemento editado " + prodAux);
+		
+		//eliminar
+		imp.delete(2);
+		imp.read();
+		
+		//contar
+		imp.contar();
+	
+	}
+
+}

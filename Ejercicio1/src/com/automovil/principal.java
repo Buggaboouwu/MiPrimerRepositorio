@@ -1,0 +1,233 @@
+package com.automovil;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public class principal {
+	public static void main(String[] args) {
+	    // Instanciar el objeto
+	    automovil a1 = new automovil("Toyota", "Corolla", 150000, "rojo");
+	    automovil a2 = new automovil("SEAT", "Toledo", 170000, "Negro");
+	    automovil a3 = new automovil("Suzuki", "Swift", 250000, "blanco");
+	    automovil a4 = new automovil("Audi", "Q5", 360000, "Azul");
+	    automovil a5 = new automovil("mazda", "X3", 350000, "Rojo");
+	    automovil a6 = new automovil("Volkswagen", "Beetle", 200000, "rosa");
+	    automovil a7 = new automovil("Honda", "civic", 20000, "gris");
+	    
+	    // Objeto auxiliar
+	    automovil auAux = null;
+	    
+	    // Declaración de una lista para almacenar los objetos
+	    List<automovil> lista = new ArrayList<automovil>();
+	    
+	   //agregar objetos a la lista
+	    lista.add(a1);
+	    lista.add(a2);
+	    lista.add(a3);
+	    lista.add(a4);
+	    lista.add(a5);
+	    lista.add(a6);
+	    lista.add(a7);/*
+
+	    //mostrar lo que existe en la lista, imprime en consola
+	    	System.out.println(lista);
+	    	
+	    //buscar un elemento especifico 
+	    	auAux =lista.get(1);
+	    	System.out.println("Elemento encontrado " + auAux);
+	    	
+	    //editar elemento de la lista 
+	    	auAux = lista.get(2);
+	    	auAux.setColor("Rosila");
+	    	auAux.setPrecio(3);
+	    	System.out.println("Elemento editado: "+ auAux);
+	    	
+	    //eliminar un elemento de la lista 
+	    	lista.remove(3);
+	    	System.out.println("Lista actualizada\n"+ lista);
+	    
+	    //contar los elementos de la lista 
+	    	System.out.println("existen " +  lista.size() + "autos en la lista");
+	    	
+	    //eliminar todo 
+	    lista.clear();
+	    
+	    //validar si la lista está vacia 
+	    
+	   if(lista.isEmpty()) {
+		   System.out.println("No exixten elementos en la lista ");
+	   } else {
+		   System.out.println(lista);
+		   }
+
+*/
+
+
+
+/*Actividad de repaso
+ * 1.- Crear un proyecto nuevo "Actividad1"
+ * 2.- Crear paquete para clases
+ * 3.- Generar la clase para el objeto que se quiera
+ * 4.- Creae clase principal e instancial con 5 objetos y realizar pruebas 
+ */
+	    
+	    Scanner scan = null; //se utiliza para leerla entrada de usuario
+	    int menuPrincipal=0, menuEditar=0, indice=0;
+	    //los menis son variables que almacenan opciones e indice 
+	    
+	    //variables locales 
+	    String marca, subMarca, color;
+	    int precio;
+	    
+	    //uso de ciclo Do-While: en java es una estructura que permite ejecutar el bloque de codigo el menos una vez y este contnua su ejecucion hasta cumplir la condicion 
+	    
+	    do {
+	    	System.out.println("-----Menú-----");
+	    	System.out.println("1.- Agregar");
+	    	System.out.println("2.- Mostrar lista");
+	    	System.out.println("3.- Editar");
+	    	System.out.println("4.- Buscar elemento ");
+	    	System.out.println("5.- Eliminar");
+	    	System.out.println("6.- Contar ");
+	    	System.out.println("7.- Salir");
+	    	System.out.println("Elige una opción");
+	    	scan = new Scanner(System.in);
+	    	menuPrincipal = scan.nextInt();
+	    	
+	    	/*Metodo switch o case: estructura e control de flujo que nos 
+	    	 * permite ejecutar diferentes bloques de codigo basados en el valor de una expresion
+	    	 * También conocidos como cse, porque dentro del switch se utilizan difeerentes case para manejar dieretes casos de una expresion */
+	    	
+	    	switch(menuPrincipal) {
+	    	case 1: 
+	    		System.out.println("1.- Agrega un registro");
+	    		System.out.println("Escribe la marca del automovil");
+	    		scan =new Scanner(System.in);
+	    		marca = scan.nextLine();
+	    		System.out.println("Escribe la sub marca del automovil");
+	    		scan =new Scanner(System.in);
+	    		subMarca = scan.nextLine();
+	    		System.out.println("Escribe el precio del automovil");
+	    		scan =new Scanner(System.in);
+	    		precio = scan.nextInt();
+	    		System.out.println("Escribe el color del automovil");
+	    		scan =new Scanner(System.in);
+	    		color = scan.nextLine();
+	    		
+	    		//instanciar
+	    		auAux = new automovil(marca, subMarca, precio, color);
+	    		//guardar en la lista 
+	    		lista.add(auAux);
+	    		System.out.println("Registro exitoso");
+	    		break; //Regresa al menú, se rompe el flujo 
+	    		
+	    	case 2:
+	    		System.out.println("2.-Mostrar lista");
+	    		System.out.println(lista);
+	    		break;
+	    	
+	    	case 3:
+	    		System.out.println("3.- Editar");
+	    		System.out.println("Ingresa el indice para editar");
+	    		scan = new Scanner(System.in);
+	    		indice =scan.nextInt();
+	    		
+	    		auAux = lista.get(indice);
+	    		
+	    		do {
+	    			System.out.println("1.-editar marca");
+	    			System.out.println("2.-editar submarca");
+	    			System.out.println("3.-editar precio");
+	    			System.out.println("4.-editar color");
+	    			System.out.println("Elige una opción");
+	    			scan = new Scanner(System.in);
+	    			menuEditar = scan.nextInt();
+	    			
+	    			switch(menuEditar) {
+	    			case 1: 
+	    				System.out.println("Escribe la nueva marca");
+	    				scan = new Scanner (System.in);
+	    				marca= scan.nextLine();
+	    				auAux.setMarca(marca);
+	    				System.out.println("Se edito correctamente");
+	    				break;
+	    			case 2:
+	    				
+	    				System.out.println("Escribe la nueva submarca");
+	    				scan = new Scanner (System.in);
+	    				subMarca= scan.nextLine();
+	    				auAux.setSubMarca(subMarca);
+	    				System.out.println("Se edito correctamente");
+	    				break;
+	    				
+	    			case 3:
+	    				
+	    				System.out.println("Escribe el nuevo precio");
+	    				scan = new Scanner (System.in);
+	    				precio= scan.nextInt();
+	    				auAux.setPrecio(precio);
+	    				System.out.println("Se edito correctamente");
+	    				break;
+	    				
+	    			case 4:
+	    	
+	    				System.out.println("Escribe el nuevo Color");
+	    				scan = new Scanner (System.in);
+	    				color= scan.nextLine();
+	    				auAux.setColor(color);
+	    				System.out.println("Se edito correctamente");
+	    				break;
+	    				
+	    			case 5:
+	    			System.out.println("Regreso menu principal");
+	    			break;
+	    			default:
+	    				System.out.println("Indice fuera de rango, ingresa un numero correcto");
+	    				break;
+	    			}// cierra el switch de editar
+	    			
+	    		}while(menuEditar != 5);  //cierra el do de editar
+	    		break; //cierra el case de editar
+	    		
+	    	case 4: 
+	    		System.out.println("4-. Buscar un elemento");
+	    		System.out.println("Indica el indice para mostrar información");
+	    		scan = new Scanner(System.in);
+	    		indice = scan.nextInt();
+	    		auAux = lista.get(indice);
+	    		System.out.println("Info completa \n" + auAux);
+	    		break;
+	    		
+	    	case 5:
+	    		System.out.println("5.- Eliminar registros");
+	    		System.out.println("Indique el registro a eliminar");
+	    		scan = new Scanner(System.in);
+	    		indice = scan.nextInt();
+	    		lista.remove(indice);
+	    		System.out.println("Elemento eliminado \n Lista actualizada \n"+ lista);
+	    		break;
+	    	
+	    	case 6:
+	    		System.out.println("6.- Contar ");
+	    		System.out.println("Existen" + lista.size() + "autos registrados");
+	    		break;
+	    		
+	    	case 7:
+	    		System.out.println("Vuelve pronto");
+	    		break;
+	    		default:
+	    			System.out.println("Indice fuera de rango");
+	    			break;
+	    	}
+	    }while(menuPrincipal !=7);
+	    }
+	}
+	
+	    	
+	    
+	
+	    
+
+
+	
