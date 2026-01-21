@@ -1,2 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<qualifiedTypeNameHistroy/>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="com.mx.Libro.Libro"/>
+    <fullyQualifiedTypeName name="Entidades.Juguete"/>
+    <fullyQualifiedTypeName name="Entidades.Videojuego"/>
+    <fullyQualifiedTypeName name="Principal.IMetdos"/>
+    <fullyQualifiedTypeName name="java.util.HashMap"/>
+    <fullyQualifiedTypeName name="Implementacion.ImpGenerica"/>
+    <fullyQualifiedTypeName name="Entidades.Fruta"/>
+    <fullyQualifiedTypeName name="Implementacion.ImpFruta"/>
+</qualifiedTypeNameHistroy>
